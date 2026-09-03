@@ -1,0 +1,17 @@
+# Local development/session artifacts - not part of the published tool
+.claude/
+.superpowers/
+docs/superpowers/
+
+# tests/ is intentionally excluded from the public GitHub repo (teammates
+# don't need it to use the tool). It stays tracked here on `master` since
+# it's already committed - this rule only matters when re-deriving a fresh
+# `main` branch via `git checkout --orphan main && git add -A`, so that
+# step doesn't accidentally re-include it.
+tests/
+
+# Bundled ffmpeg.exe/ffprobe.exe (~220MB each) so the tool works fully
+# offline with zero setup. On this branch (`main`, what's published to
+# GitHub) these are tracked via Git LFS instead of being ignored - see
+# .gitattributes. GitHub rejects any single file over 100MB outright
+# through a normal git push, hence LFS.
